@@ -8,9 +8,21 @@
  */
 
 /**
- * Twig
+ * Composer (Twig, Kint, PhpDotEnv)
  */
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+/**
+ * Kint
+ */
+Kint::$aliases[] = 'dd';
+function dd(...$vars) { return die(Kint::dump(...$vars)); }
+
+/**
+ * PhpDotEnv
+ */
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
 /**
  * Class autoloader
@@ -38,16 +50,21 @@ set_exception_handler('Core\Error::exceptionHandler');
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 
-
 /**
  * Require the router
 */
 $router = new Core\Router();
 
+/**
+ * Set the routers
+ */
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('{controller}/', ['action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
-
+/**
+ * Dispatch the router
+ */
 $router->dispatch($_SERVER['QUERY_STRING']);

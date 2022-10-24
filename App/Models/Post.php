@@ -21,7 +21,8 @@ class Post extends \Core\Model
         }
         catch (PDOException $e)
         {
-            echo $e->getMessage();
+            throw new \Exception($e->getMessage());
+            // echo $e->getMessage();
         }
     }
 }

@@ -22,7 +22,7 @@ class Posts extends \Core\Controller
 
     public function editAction()
     {
-        echo 'edit from the posts controller';
+        echo 'ID: ' . $this->route_params['id'];
         echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
     }
 }

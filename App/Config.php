@@ -6,7 +6,7 @@ class Config
 {
     const DB_HOST = 'localhost';
     const DB_NAME = 'mvc';
-    const DB_USER = 'loisvel';
-    const DB_PASS = 'admin';
-    const SHOW_ERRORS = false;
+    const DB_USER = 'root';
+    const DB_PASS = '';
+    const SHOW_ERRORS = true;
 }
