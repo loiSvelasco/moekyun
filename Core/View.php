@@ -4,7 +4,7 @@ namespace Core;
 
 class View
 {
-    public static function render($view, $args = [])
+    public static function renderBasic($view, $args = [])
     {
         extract($args, EXTR_SKIP);
 
@@ -19,7 +19,7 @@ class View
         }
     }
 
-    public static function renderTemplate($template, $args = [])
+    public static function render($template, $args = [])
     {
         static $twig = null;
 
@@ -28,6 +28,8 @@ class View
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
             $twig = new \Twig\Environment($loader);
         }
+
+        $template .= ".php";
         
         echo $twig->render($template, $args);
     }

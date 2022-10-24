@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout/base.php" %}
 
 {% block title %}404 :({% endblock %}
 

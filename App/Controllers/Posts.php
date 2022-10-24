@@ -9,8 +9,10 @@ class Posts extends \Core\Controller
 {
     public function indexAction()
     {
-        $posts = Post::getAll();
-        View::renderTemplate('Posts/index.html', [
+        $postModel = new Post;
+        $posts = $postModel->getAll();
+
+        View::render('Posts/index', [
             'posts' => $posts
         ]);
     }

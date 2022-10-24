@@ -58,11 +58,11 @@ $router = new Core\Router();
 /**
  * Set the routers
  */
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('{controller}/', ['action' => 'index']);
-$router->add('{controller}/{action}');
-$router->add('{controller}/{action}/{id:\d+}');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
+$router->add('', ['controller' => 'Home', 'action' => 'index']); // = /
+$router->add('{controller}/', ['action' => 'index']); // = posts/ home/
+$router->add('{controller}/{action}'); // = /posts/new /home/about
+$router->add('{controller}/{action}/{id:\d+}'); // = /posts/edit/3
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); // = /admin/users/new
 
 /**
  * Dispatch the router

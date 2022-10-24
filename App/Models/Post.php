@@ -7,7 +7,7 @@ use PDO;
 class Post extends \Core\Model
 {
 
-    public static function getAll()
+    public function getAll()
     {
         try
         {

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout/base.php" %}
 {% block title %}Posts{% endblock %}
 
 {% block body %}
