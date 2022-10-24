@@ -1,3 +1,9 @@
+# logfiles
 *.txt
+
+# vscode files
 .hintrc
+.vscode/
+
+# environment files
 .env

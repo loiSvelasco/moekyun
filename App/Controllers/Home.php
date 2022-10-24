@@ -29,4 +29,9 @@ class Home extends \Core\Controller
             'colors' => ['red', 'green', 'blue']
         ]);
     }
+
+    public function registerAction()
+    {
+        dd($GLOBALS);
+    }
 }

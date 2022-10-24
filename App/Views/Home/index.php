@@ -11,7 +11,7 @@
                 attempting to submit the form without completing it.</p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-0 bg-light">
+            <form class="p-4 p-md-5 border rounded-0 bg-light" action="/home/register" method="GET">
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control rounded-0" id="floatingInput"
                         placeholder="name@example.com">

@@ -17,6 +17,8 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
  */
 Kint::$aliases[] = 'dd';
 function dd(...$vars) { return die(Kint::dump(...$vars)); }
+use Kint\Renderer\RichRenderer;
+RichRenderer::$theme = 'moekyun.css';
 
 /**
  * PhpDotEnv
