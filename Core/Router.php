@@ -67,7 +67,6 @@ class Router
                 if(is_callable([$controller_obj, $action]))
                 {
                     $controller_obj->$action();
-                    // d($_POST);
                 }
                 else
                 {

@@ -18,20 +18,25 @@ class Home extends \Core\Controller
     
     public function indexAction()
     {
-        // echo 'home - index controller';
-        // View::render('Home/index.php', [
-        //     'name' => 'Louis',
-        //     'colors' => ['red', 'green', 'blue']
-        // ]);
-
-        View::render('Home/index', [
-            'name' => 'Louis',
-            'colors' => ['red', 'green', 'blue']
-        ]);
+        View::render('Home/index');
     }
 
     public function registerAction()
     {
-        dd($GLOBALS);
+        
+        if(count($this->validatePost()) !== 0)
+        {
+            $email = $this->getPost('email');
+            $password = $this->getPost('pass');
+        }
+        else
+        {
+            echo "All fields are required";
+        }
+    
+        // dd($this->getPost());
+        // dd($this->getPost('email'));
+
+        echo $email . " :: " . $password;
     }
 }

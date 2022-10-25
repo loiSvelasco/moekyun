@@ -10,7 +10,10 @@ class Posts extends \Core\Controller
     public function indexAction()
     {
         $postModel = new Post;
-        $posts = $postModel->getAll();
+        $posts = $postModel->select()
+                           ->from('posts')
+                           ->orderBy('id ASC')
+                           ->result();
 
         View::render('Posts/index', [
             'posts' => $posts

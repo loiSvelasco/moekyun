@@ -11,14 +11,14 @@
                 attempting to submit the form without completing it.</p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-0 bg-light" action="/home/register" method="GET">
+            <form class="p-4 p-md-5 border rounded-0 bg-light" action="/home/register" method="POST">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control rounded-0" id="floatingInput"
+                    <input type="email" class="form-control rounded-0" name="email" id="floatingInput"
                         placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control rounded-0" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control rounded-0" name="pass" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="checkbox mb-3">

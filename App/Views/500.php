@@ -1,8 +1,9 @@
-{% extends "layout/base.php" %}
-
-{% block title %}500 :({% endblock %}
+{% extends "layout/error.php" %}
+{% block title %}Error 500{% endblock %}
 
 {% block body %}
-<h3>500: Internal Server Error :(</h3>
-<p>Sorry, an error occured.</p>
+<div class='center'>
+    <h3>500: Internal Server Error :(</h3>
+    <p>Sorry, an error occured.</p>
+</div>
 {% endblock %}

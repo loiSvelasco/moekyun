@@ -8,16 +8,16 @@
  */
 
 /**
- * Composer (Twig, Kint, PhpDotEnv)
+ * Composer
  */
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
  * Kint
  */
+use Kint\Renderer\RichRenderer;
 Kint::$aliases[] = 'dd';
 function dd(...$vars) { return die(Kint::dump(...$vars)); }
-use Kint\Renderer\RichRenderer;
 RichRenderer::$theme = 'moekyun.css';
 
 /**

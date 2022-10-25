@@ -28,6 +28,44 @@ abstract class Controller
         }
     }
 
+    public function getPost($name = '')
+    {
+        if($name !== '')
+        {
+            if(!isset($_POST[$name]))
+            {
+                throw new \Exception("Post data '$name' does not exist.");
+            }
+            
+            return $_POST[$name];
+        }
+        else
+        {
+            return $_POST;
+        }
+
+    }
+
+    public function validatePost()
+    {
+        $errors = [];
+
+        if(!isset($_POST))
+        {
+            throw new \Exception("No posted data.");
+        }
+        
+        foreach($_POST as $key => $value)
+        {
+            if($value == "")
+            {
+                $errors[] = "$key is required.";
+            }
+        }
+        
+        return $errors;
+    }
+
     protected function before()
     {
         
