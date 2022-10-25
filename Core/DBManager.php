@@ -39,11 +39,9 @@ class DBManager
 
     public function result() {
         $query[] = "SELECT";
-        // if the selectables array is empty, select all
         if (empty($this->selectables)) {
             $query[] = "*";  
         }
-        // else select according to selectables
         else {
             $query[] = join(', ', $this->selectables);
         }
@@ -78,33 +76,4 @@ class DBManager
     }
 }
 
-// Now to use the class and see how METHOD CHAINING works
-// let us instantiate the class DBManager
-
-/*
-
-    $testOne = new DBManager();
-    $testOne->select()->from('users');
-    echo $testOne->result();
-    echo $testOne->select()->from('users')->result();
-    // both displays: 'SELECT * FROM users'
-
-    $testTwo = new DBManager();
-    $testTwo->select()->from('posts')->where('id > 200')->limit(10);
-    echo $testTwo->result();
-    // this displays: 'SELECT * FROM posts WHERE id > 200 LIMIT 10'
-
-    $testThree = new DBManager();
-    $testThree->select(
-        'firstname',
-        'email',
-        'country',
-        'city'
-    )->from('users')->where('id = 2399');
-    echo $testThree->result();
-
-*/
-
-// this will display:
-// 'SELECT firstname, email, country, city FROM users WHERE id = 2399'
 
