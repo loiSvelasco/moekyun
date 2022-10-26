@@ -14,7 +14,7 @@
         <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
             <li class="nav-item"><a href="/" class="nav-link link-light px-2">Home</a></li>
-            <li class="nav-item"><a href="posts/" class="nav-link link-light px-2">Posts</a></li>
+            <li class="nav-item"><a href="/posts/" class="nav-link link-light px-2">Posts</a></li>
         </ul>
         <ul class="nav">
             <li class="nav-item"><a href="#" class="nav-link link-light px-2">Login</a></li>

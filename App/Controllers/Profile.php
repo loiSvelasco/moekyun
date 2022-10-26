@@ -5,7 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use App\Models\User;
 
-class User extends \Core\Controller
+class Profile extends \Core\Controller
 {
     protected function before()
     {
@@ -19,7 +19,12 @@ class User extends \Core\Controller
     
     public function indexAction()
     {
-        View::render('Home/index');
+        $user = new User();
+        $account = $user->select()->where('id = 1')->result();
+
+        View::render('Profile/index', [
+            'user' => $account
+        ]);
     }
 
     public function registerAction()
@@ -28,9 +33,6 @@ class User extends \Core\Controller
         $email = $this->getPost('email');
         $password = $this->getPost('pass');
 
-    
-        // dd($this->getPost());
-        // dd($this->getPost('email'));
 
         echo $email . " :: " . $password;
     }

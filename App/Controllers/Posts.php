@@ -11,9 +11,9 @@ class Posts extends \Core\Controller
     {
         $postModel = new Post;
         $posts = $postModel->select()
-                           ->from('posts')
                            ->orderBy('id ASC')
                            ->result();
+        // $posts = $postModel->selectAll();
 
         View::render('Posts/index', [
             'posts' => $posts

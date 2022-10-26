@@ -2,13 +2,14 @@
 {% block title %}Oh no :({% endblock %}
 
 {% block body %}
-<div class='center'>
-    <h3>Fatal Error:</h3>
-    <p>Uncaught Exception: <strong>'{{ exception }}'</strong></p>
-    <p>Message: {{ message }}</p>
-</div>
-<div class="center">
-    <pre>{{ trace }}</pre>
-    <p>Thrown in {{ file }} on line {{ line }}.</p>
+<div class="container">
+    <div class="flex-item">
+        <h3>Fatal Error</h3>
+        <p>Uncaught Exception: <strong>'{{ exception }}'</strong></p>
+        <p class="message"><i class="bi-exclamation-circle"></i> {{ message }}</p>
+        <p>Stack Trace:</p>
+        <pre>{{ trace }}</pre>
+        <p>Thrown in {{ file }} on line {{ line }}.</p>
+    </div>
 </div>
 {% endblock %}
