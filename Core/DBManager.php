@@ -3,26 +3,35 @@
 namespace Core;
 
 use PDO;
-
+use App\Database;
 class DBManager
 {
     private $selectables = array();
-    // private $table;
     private $whereClause;
     private $orderBy;
     private $limit;
+
+    protected static function getDB()
+    {
+        static $db = null;
+
+        if($db === null)
+        {
+            $db = new PDO(
+                "mysql:host=" . Database::DB_HOST . ";
+                     dbname=" . Database::DB_NAME . "; charset=utf8mb4",
+                     Database::DB_USER, Database::DB_PASS
+            );
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $db;
+        }
+    }
 
     public function select()
     {
         $this->selectables = func_get_args();
         return $this;
     }
-
-    // public function from($table)
-    // {
-    //     $this->table = $table;
-    //     return $this->table;
-    // }
 
     public function where($where)
     {

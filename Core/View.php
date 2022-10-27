@@ -27,6 +27,27 @@ class View
         {
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
             $twig = new \Twig\Environment($loader);
+
+            $twig->addFunction(
+                new \Twig\TwigFunction('getenv', function ($key) {
+                    return $_ENV[$key];
+                })
+            );
+
+            $twig->addFunction(
+                new \Twig\TwigFunction('copyright', function () {
+                    $fromYear = $_ENV['FROM_YR'];
+                    $thisYear = (int)date('Y');
+                    return $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');
+                })
+            );
+
+            $twig->addFunction(
+                new \Twig\TwigFunction('url_for', function ($folderName, $fileName) {
+                    $url = $_ENV['BASE_URL'];
+                    return "$url/$folderName/$fileName";
+                })
+            );
         }
 
         $template .= ".php";

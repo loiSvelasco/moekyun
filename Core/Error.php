@@ -25,12 +25,6 @@ class Error
         
         if(\App\Config::SHOW_ERRORS)
         {
-            // echo "<h3>Fatal Error:</h3>";
-            // echo "<p>Uncaught Exception: <strong>" . get_class($exception) . "</strong>.</p>";
-            // echo "<p>" . $exception->getMessage() . "</p>";
-            // echo "<p>Stack trace:<pre>" . $exception->getTraceAsString() . "</pre></p>";
-            // echo "<p>Thrown in: " . $exception->getFile() . " on line " . $exception->getLine() . "</p>";
-
             View::render("errors", [
                 'exception' => get_class($exception),
                 'message' => $exception->getMessage(),

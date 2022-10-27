@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use View;
 abstract class Controller
 {
     protected $route_params = [];
