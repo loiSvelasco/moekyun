@@ -33,9 +33,9 @@ class DBManager
         return $this;
     }
 
-    public function where($where)
+    public function where($column, $id)
     {
-        $this->whereClause = $where;
+        $this->whereClause = "$column = $id";
         return $this;
     }
 

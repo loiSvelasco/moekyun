@@ -58,13 +58,19 @@ mb_http_output('UTF-8');
 $router = new Core\Router();
 
 /**
- * Set the routers
+ * Default routers to accomodate any query strings
  */
 $router->add('', ['controller' => 'Home', 'action' => 'index']); // = /
 $router->add('{controller}/', ['action' => 'index']); // = posts/ home/
 $router->add('{controller}/{action}'); // = /posts/new /home/about
 $router->add('{controller}/{action}/{id:\d+}'); // = /posts/edit/3
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); // = /admin/users/new
+
+/**
+ * Additional routers
+ */
+
+ 
 
 /**
  * Dispatch the router

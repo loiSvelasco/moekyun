@@ -48,6 +48,5 @@ class Error
 
             View::render("$code");
         }
-
     }
 }
