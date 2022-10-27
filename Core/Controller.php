@@ -5,13 +5,36 @@ namespace Core;
 use View;
 abstract class Controller
 {
+    /**
+     * Property that stores $_SERVER['QUERY_STRING'] parameters
+     *
+     * @var array
+     */
     protected $route_params = [];
 
+    /**
+     * Sets $route_params[] from the $_SERVER['QUERY_STRING']
+     *
+     * @param mixed $route_params
+     * 
+     */
     public function __construct($route_params)
     {
         $this->route_params = $route_params;
     }
 
+    /**
+     * Magic method to run before() and after()
+     *  - before() useful for checks before running the main controller->method
+     *  - after() runs after the method call
+     * 
+     *
+     * @param mixed $name
+     * @param mixed $args
+     * 
+     * @return void
+     * 
+     */
     public function __call($name, $args)
     {
         $method = $name . 'Action';
@@ -30,6 +53,14 @@ abstract class Controller
         }
     }
 
+    /**
+     * [Description for getPost]
+     *
+     * @param string $name
+     * 
+     * @return $_POST
+     * 
+     */
     public function getPost($name = '')
     {
         if($name !== '')
@@ -43,6 +74,10 @@ abstract class Controller
         }
         else
         {
+            if(!isset($_POST))
+            {
+                throw new \Exception("There are no posted data.");
+            }
             return $_POST;
         }
 
