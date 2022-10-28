@@ -50,6 +50,7 @@ class Router
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVars($url);
+        $args = NULL;
 
         if($this->match($url))
         {
@@ -66,7 +67,14 @@ class Router
 
                 if(is_callable([$controller_obj, $action]))
                 {
-                    $controller_obj->$action();
+                    if(isset($this->params['id']))
+                    {
+                        $controller_obj->$action($this->params['id']);
+                    }
+                    else
+                    {
+                        $controller_obj->$action();
+                    }
                 }
                 else
                 {

@@ -19,18 +19,15 @@ class Profile extends \Core\Controller
     
     public function indexAction()
     {
-        $user = new User();
-        $account = $user->select()->where("id = 1")->result();
 
-        View::render('Profile/index', [
-            'user' => $account
-        ]);
     }
 
     public function showAction($id)
     {
         $user = new User();
-        $account = $user->select()->where('id', $id)->result();
+        $account = $user->select()
+                        ->where('id', $id)
+                        ->result();
 
         View::render('Profile/index', [
             'user' => $account
