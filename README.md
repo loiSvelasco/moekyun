@@ -14,16 +14,10 @@ From urban dictionary, a totally reliable source of information btw, *Moe moe, k
 
 and whatever comes that I might need soon.
 
-<br/>
-
 ### ***Ghetto documentation below while I learn how to use sphinx lmao***
-<br/>
 <br/>
 
 #### **Model Properties**
----
-
-
 ```php
 <?php
 
