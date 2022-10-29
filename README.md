@@ -10,7 +10,7 @@ From urban dictionary, a totally reliable source of information btw, *Moe moe, k
 - Twig templating engine
 - Kint 
 - DotEnv
-- A query builder built from scratch, to prioritize unnecessary libraries and dependencies (Like I said, this is built purely for personal projects).
+- A query builder built from scratch, to remove unnecessary libraries and dependencies (Like I said, this is built purely for personal projects).
 
 and whatever comes that I might need soon.
 
