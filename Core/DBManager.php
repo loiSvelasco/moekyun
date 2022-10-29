@@ -119,16 +119,15 @@ class DBManager
 
     public function selectAll()
     {
-        try
-        {
-            return $this->select()
-                        ->result();
-        }
-        catch (PDOException $e)
-        {
-            throw new \Exception($e->getMessage());
-        }
+        return $this->select()
+                    ->result();
+    }
 
+    public function find($id)
+    {
+        return $this->select()
+                    ->where($this->primaryKey, $id)
+                    ->result();
     }
 
 }

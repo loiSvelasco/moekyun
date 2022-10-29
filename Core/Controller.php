@@ -53,11 +53,12 @@ abstract class Controller
     }
 
     /**
-     * [Description for getPost]
+     * Gets the post data based on the index, when empty, it returns 
+     * the whole post array.
      *
-     * @param string $name
+     * @param string $name 
      * 
-     * @return $_POST
+     * @return mixed
      * 
      */
     public function getPost($name = '')
@@ -77,7 +78,6 @@ abstract class Controller
             {
                 throw new \Exception("There are no posted data.");
             }
-            return $_POST;
         }
 
     }
@@ -100,6 +100,12 @@ abstract class Controller
         }
         
         return $errors;
+    }
+
+    public function redirectTo(string $url)
+    {
+        header("Location: " . $_ENV['BASE_URL'] . "/$url", 301);
+        exit();
     }
 
     protected function before()

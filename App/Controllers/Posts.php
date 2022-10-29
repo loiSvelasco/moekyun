@@ -7,13 +7,19 @@ use App\Models\Post;
 
 class Posts extends \Core\Controller
 {
+    private $postModel;
+
+    public function __construct()
+    {
+        $this->postModel = new Post;
+    }
+    
     public function indexAction()
     {
-        $postModel = new Post;
-        $posts = $postModel->select()
-                           ->orderBy('id ASC')
-                           ->result();
-        // $posts = $postModel->selectAll();
+        $posts = $this->postModel
+                      ->select()
+                      ->orderBy('id ASC')
+                      ->result();
 
         View::render('Posts/index', [
             'posts' => $posts
@@ -22,17 +28,36 @@ class Posts extends \Core\Controller
 
     public function addNewAction()
     {
-        echo 'addNew from the posts controller';
+     
     }
 
     public function editAction()
     {
-        //echo 'ID: ' . $this->route_params['id'];
-        echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
+     
     }
 
-    public function viewAction()
+    public function viewAction($id)
     {
-        echo 'id: ' . $this->route_params['id'];
+        // $post = $this->postModel
+        //              ->select()
+        //              ->where('id', $id)
+        //              ->first()
+        //              ->result();
+
+        $post = $this->postModel
+                     ->find($id);
+
+        // dd($post);
+
+        if( ! $post)
+        {
+            $this->redirectTo('posts/index');
+        }
+        else
+        {
+            View::render('Posts/index', [
+                'posts' => $post
+            ]);
+        }
     }
 }

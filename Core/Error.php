@@ -23,7 +23,7 @@ class Error
         
         http_response_code($code);
         
-        if(\App\Config::SHOW_ERRORS)
+        if($_ENV['ENVIRONMENT'] == 'development')
         {
             View::render("errors", [
                 'exception' => get_class($exception),
