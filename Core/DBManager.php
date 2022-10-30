@@ -134,6 +134,7 @@ class DBManager
     {
         return $this->select()
                     ->where($this->primaryKey, $id)
+                    ->first()
                     ->result();
     }
 
