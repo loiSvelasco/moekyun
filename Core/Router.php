@@ -50,7 +50,6 @@ class Router
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVars($url);
-        $args = NULL;
 
         if($this->match($url))
         {
@@ -64,6 +63,9 @@ class Router
 
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
+
+                unset($this->params['controller']);
+                unset($this->params['action']);
 
                 if(is_callable([$controller_obj, $action]))
                 {

@@ -26,8 +26,12 @@ class View
         if($twig === null)
         {
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
-            $twig = new \Twig\Environment($loader);
-
+            $twig = new \Twig\Environment($loader, [
+                'debug' => true
+            ]);
+            
+            $twig->addExtension(new \Twig\Extension\DebugExtension());
+            
             $twig->addFunction(
                 new \Twig\TwigFunction('getenv', function ($key) {
                     return $_ENV[$key];

@@ -38,16 +38,8 @@ class Posts extends \Core\Controller
 
     public function viewAction($id)
     {
-        // $post = $this->postModel
-        //              ->select()
-        //              ->where('id', $id)
-        //              ->first()
-        //              ->result();
-
         $post = $this->postModel
                      ->find($id);
-
-        // dd($post);
 
         if( ! $post)
         {
@@ -59,5 +51,13 @@ class Posts extends \Core\Controller
                 'posts' => $post
             ]);
         }
+    }
+
+    public function customAction($track, $status)
+    {
+        View::render('Posts/custom', [
+            'track' => $track,
+            'status' => $status
+        ]);
     }
 }

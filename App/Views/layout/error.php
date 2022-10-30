@@ -43,6 +43,7 @@
             align-items: center;
             flex-direction: column;
             margin-top: 2%;
+            margin-bottom: 2%;
         }
 
         .flex-item {

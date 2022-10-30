@@ -13,14 +13,21 @@ class DBManager
 
     protected static function getDB()
     {
+        $host = $_ENV['DB_HOST'];
+        $name = $_ENV['DB_NAME'];
+        $user = $_ENV['DB_USER'];
+        $pass = $_ENV['DB_PASS'];
+
         static $db = null;
 
         if($db === null)
         {
             $db = new PDO(
-                "mysql:host=" . Database::DB_HOST . ";
-                     dbname=" . Database::DB_NAME . "; charset=utf8mb4",
-                     Database::DB_USER, Database::DB_PASS
+                "mysql:host=$host;
+                 dbname=$name;
+                 charset=utf8mb4", 
+                $user, 
+                $pass
             );
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $db;

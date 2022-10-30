@@ -23,12 +23,12 @@ class Error
         
         http_response_code($code);
         
-        if($_ENV['ENVIRONMENT'] == 'development')
+        if($_ENV['ENVIRONMENT'] == 'dev')
         {
             View::render("errors", [
                 'exception' => get_class($exception),
                 'message' => $exception->getMessage(),
-                'trace' => $exception->getTraceAsString(),
+                'trace' => $exception->getTrace(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine()
             ]);

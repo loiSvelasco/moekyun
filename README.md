@@ -6,7 +6,7 @@
 From urban dictionary, a totally reliable source of information btw, *Moe moe, kyun!* is used to describe something, or someone super cute and/or adorable. Like how the anime girl above looks at you all smug while you read this.
 
 ## Okay, now what does Moekyun do?
-*Moekyun* is a simple php framework for personnal projects, it contains the basic *MVC* functionality, with the addition of 
+*Moekyun* is a simple php framework for personal projects, it contains the basic *MVC* functionality, with the addition of 
 - Twig templating engine
 - Kint 
 - DotEnv
