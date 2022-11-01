@@ -98,31 +98,27 @@
 
 
 </head>
-<body class="">
+
+<body class="text-center">
     <main class="form-signin w-100 m-auto">
         <div class="card rounded-0">
-            <div class="card-body">     
-                <form>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <p class="h5 mb-4 mt-3 fw-light">Enter your login details to proceed</p>
+            <div class="card-body">
+                <form method="POST" action="/register/create">
+                    <p class="h5 mb-4 mt-3 fw-light">Create an account</p>
+
                     <div class="form-floating">
-                        <input type="email" class="form-control rounded-0" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control rounded-0" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control rounded-0" id="floatingPassword" placeholder="Password">
+                        <input type="password" name="password" class="form-control rounded-0" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
-
-                    <div class="checkbox mb-4">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
+                    <div class="form-floating">
+                        <input type="password" name="confirm" class="form-control rounded-0" id="floatingPassword2" placeholder="Confirm Password">
+                        <label for="floatingPassword2">Confirm Password</label>
                     </div>
-                    <button class="w-100 btn btn-md btn-dark rounded-0" type="submit">Log in</button>
+                    <button class="w-100 btn btn-md btn-dark rounded-0" type="submit">Register</button>
                 </form>
             </div>
         </div>
@@ -130,7 +126,7 @@
     </main>
 
 
-    {% include "layout/scripts.php" %}
+
 </body>
 
 </html>

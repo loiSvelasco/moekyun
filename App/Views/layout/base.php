@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link href="{{ url_for('assets','css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    {% include "layout/styles.php" %}
 </head>
 <body class="d-flex flex-column h-100">
     <nav class="py-2 bg-dark border-bottom">
@@ -17,7 +16,7 @@
         </ul>
         <ul class="nav">
             <li class="nav-item"><a href="/login/" class="nav-link link-light px-2">Login</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light px-2">Sign up</a></li>
+            <li class="nav-item"><a href="/register/" class="nav-link link-light px-2">Sign up</a></li>
         </ul>
         </div>
     </nav>
@@ -62,6 +61,6 @@
     </div>
     </footer>
     <!-- JavaScript Bundle with Popper -->
-    <script src="{{ url_for('assets', 'js/bootstrap.bundle.min.js') }}" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    {% include "layout/scripts.php" %}
 </body>
 </html>

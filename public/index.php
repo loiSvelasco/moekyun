@@ -46,9 +46,8 @@ use Tracy\Debugger;
 
 if($_ENV['ENVIRONMENT'] === 'dev')
 {
-    Debugger::enable();
-    Debugger::$dumpTheme = 'dark';
-    Debugger::$showBar = true; 
+    Debugger::enable(Debugger::DEVELOPMENT);
+    Debugger::$showBar = false; 
 
     Sage::enabled(true);
 }

@@ -26,9 +26,7 @@ class View
         if($twig === null)
         {
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
-            $twig = new \Twig\Environment($loader, [
-                'debug' => true
-            ]);
+            $twig = new \Twig\Environment($loader);
             
             $twig->addExtension(new \Twig\Extension\DebugExtension());
             
