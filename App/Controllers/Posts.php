@@ -60,4 +60,20 @@ class Posts extends \Core\Controller
             'status' => $status
         ]);
     }
+
+    public function insertAction()
+    {
+        $insert = $this->postModel->insert([
+            'seventh post',
+            'seventh post content',
+        ]);
+
+        if($insert)
+        {
+            View::render('Posts/custom', [
+                'track' => "Successfully inserted data with id: ",
+                'status' => $insert
+            ]);
+        }
+    }
 }

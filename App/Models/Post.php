@@ -6,5 +6,5 @@ class Post extends \Core\Model
 {
     protected $tableName = 'posts';
     protected $primaryKey = 'id';
-    protected $columns = ['id', 'title', 'content', 'created_at'];
+    protected $fillable = ['title', 'content'];
 }

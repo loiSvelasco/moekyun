@@ -138,6 +138,39 @@ class DBManager
                     ->result();
     }
 
+    public function insert(array $vals)
+    {
+        foreach($this->fillable as $col)
+        {
+            $vaCols .= ":$col,";
+        }
+        $vaCols = rtrim($vaCols, ',');
+        $toCols = implode(',', $this->fillable);
+        $toBind = explode(',', $vaCols);
+
+        // get tablename, fillable columns, form the model called
+        $db = static::getDB();
+        $stmt = "INSERT INTO $this->tableName($toCols) VALUES($vaCols)";
+        $query = $db->prepare($stmt);
+        
+        if(count($toBind) !== count($vals))
+        {
+            throw new \Exception("
+                Columns in the data model does not
+                match the number of values to bind from the insert() function.
+            ");
+        }
+
+        for($i = 0; $i < count($toBind); $i++)
+        {
+            $query->bindParam($toBind[$i], $vals[$i]);
+        }
+
+
+        $query->execute();
+        return $db->lastInsertId();
+    }
+
 }
 
 
