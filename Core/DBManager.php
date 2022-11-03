@@ -148,7 +148,7 @@ class DBManager
         $toCols = implode(',', $this->fillable);
         $toBind = explode(',', $vaCols);
 
-        // get tablename, fillable columns, form the model called
+        // get tablename, fillable columns, from the model called
         $db = static::getDB();
         $stmt = "INSERT INTO $this->tableName($toCols) VALUES($vaCols)";
         $query = $db->prepare($stmt);
@@ -165,7 +165,6 @@ class DBManager
         {
             $query->bindParam($toBind[$i], $vals[$i]);
         }
-
 
         $query->execute();
         return $db->lastInsertId();
