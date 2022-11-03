@@ -102,11 +102,6 @@ abstract class Controller
         return $errors;
     }
 
-    public function redirectTo(string $url)
-    {
-        header("Location: " . $_ENV['BASE_URL'] . "/$url", 301);
-        exit();
-    }
 
     protected function before()
     {
