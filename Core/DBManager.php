@@ -148,7 +148,6 @@ class DBManager
         $toCols = implode(',', $this->fillable);
         $toBind = explode(',', $vaCols);
 
-        // get tablename, fillable columns, from the model called
         $db = static::getDB();
         $stmt = "INSERT INTO $this->tableName($toCols) VALUES($vaCols)";
         $query = $db->prepare($stmt);
