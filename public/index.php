@@ -58,20 +58,16 @@ else
     set_exception_handler('Core\Error::exceptionHandler');
 }
 
-
 /**
  * --------------------------
- * Routers
- * --------------------------
- */
-$router = new Core\Router();
-
-/**
- * --------------------------
+ * Routers 
+ * 
  * Admin dashboard to sit at the top to match first /admin/ in the url,
  * otherwise, match applicable controller:action combo after
  * --------------------------
  */
+$router = new Core\Router();
+
 $router->add('admin', [
                        'namespace' => 'Admin',
                        'controller' => 'dashboard',

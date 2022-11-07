@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use \Core\View;
 class Dashboard extends \Core\Controller
 {
     protected function before()
@@ -16,6 +17,8 @@ class Dashboard extends \Core\Controller
 
     public function indexAction()
     {
-        echo "dashboard from admin/";
+        View::render('Admin/dashboard', [
+
+        ]);
     }
 }
