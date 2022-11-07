@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use View;
+use Core\Session;
 abstract class Controller
 {
     /**
@@ -11,6 +11,7 @@ abstract class Controller
      * @var array
      */
     protected $route_params = [];
+    protected $session;
 
     /**
      * Sets $route_params[] from the $_SERVER['QUERY_STRING']
@@ -21,6 +22,7 @@ abstract class Controller
     public function __construct($route_params)
     {
         $this->route_params = $route_params;
+        $this->session = new Session();
     }
 
     /**

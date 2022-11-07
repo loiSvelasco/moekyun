@@ -47,7 +47,7 @@ use Tracy\Debugger;
 if($_ENV['ENVIRONMENT'] === 'dev')
 {
     Debugger::enable(Debugger::DEVELOPMENT);
-    Debugger::$showBar = false; 
+    Debugger::$showBar = true; 
 
     Sage::enabled(true);
 }

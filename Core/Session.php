@@ -20,7 +20,7 @@ class Session
         }
         else
         {
-            throw new Exception("Session '$key' already exists.");
+            throw new \Exception("Session '$key' already exists.");
         }
     }
 
@@ -43,7 +43,7 @@ class Session
         }
         else
         {
-            throw new Exception("Unable to destroy session '$key': Session does not exist.");
+            throw new \Exception("Unable to destroy session '$key': Session does not exist.");
         }
     }
 

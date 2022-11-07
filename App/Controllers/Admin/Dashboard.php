@@ -18,7 +18,7 @@ class Dashboard extends \Core\Controller
     public function indexAction()
     {
         View::render('Admin/dashboard', [
-
+            
         ]);
     }
 }
