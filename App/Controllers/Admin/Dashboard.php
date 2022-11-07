@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Admin;
 
-class Users extends \Core\Controller
+class Dashboard extends \Core\Controller
 {
     protected function before()
     {
@@ -16,11 +16,6 @@ class Users extends \Core\Controller
 
     public function indexAction()
     {
-        echo "index from admin/users";
-    }
-
-    public function allaction()
-    {
-        echo "All users, called from Users/all";
+        echo "dashboard from admin/";
     }
 }

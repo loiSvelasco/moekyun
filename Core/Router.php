@@ -50,7 +50,8 @@ class Router
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVars($url);
-
+        $url = rtrim($url, '/');
+        
         if($this->match($url))
         {
             $controller = $this->params['controller'];

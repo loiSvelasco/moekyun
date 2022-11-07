@@ -61,27 +61,35 @@ else
 
 /**
  * --------------------------
- * Router 
+ * Routers
  * --------------------------
  */
 $router = new Core\Router();
 
 /**
  * --------------------------
+ * Admin dashboard to sit at the top to match first /admin/ in the url,
+ * otherwise, match applicable controller:action combo after
+ * --------------------------
+ */
+$router->add('admin', [
+                       'namespace' => 'Admin',
+                       'controller' => 'dashboard',
+                       'action' => 'index'
+                      ]);
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
+$router->add('admin/{controller}/{action}/{id:\d+}', ['namespace' => 'Admin']);
+
+/**
+ * --------------------------
  * Default routers to accomodate query strings
- * this routing table is very strict, i.e.,
- * if a leading forward-slash is missing, it will return 404
- * the ones below are the default to accomodate the error.
+ * rotuers must NOT have a leading '/' at the end.
  * --------------------------
  */
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('{controller}/', ['action' => 'index']);
 $router->add('{controller}', ['action' => 'index']);
 $router->add('{controller}/{action}');
-$router->add('{controller}/{action}/');
 $router->add('{controller}/{action}/{id:\d+}');
-$router->add('{controller}/{action}/{id:\d+}/');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 
 /**
