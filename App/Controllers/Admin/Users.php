@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use \Core\View;
+
 class Users extends \Core\Controller
 {
     protected function before()
@@ -16,11 +18,9 @@ class Users extends \Core\Controller
 
     public function indexAction()
     {
-        echo "index from admin/users";
+        View::render('Admin/users', [
+            
+        ]);
     }
 
-    public function allaction()
-    {
-        echo "All users, called from Users/all";
-    }
 }

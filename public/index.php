@@ -16,6 +16,14 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
  * --------------------------
+ * Functions
+ * --------------------------
+ */
+require_once dirname(__DIR__) . '/Core/Common.php';
+
+
+/**
+ * --------------------------
  * PHPDotEnv
  * --------------------------
  */
@@ -73,6 +81,7 @@ $router->add('admin', [
                        'controller' => 'dashboard',
                        'action' => 'index'
                       ]);
+$router->add('admin/{controller}', ['namespace' => 'Admin', 'action' => 'index']);
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 $router->add('admin/{controller}/{action}/{id:\d+}', ['namespace' => 'Admin']);
 

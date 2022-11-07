@@ -34,17 +34,22 @@ class Session
         return $_SESSION[$key];
     }
 
-    public function destroy(string $key)
+    public function destroy($key = null)
     {
-        if(isset($_SESSION[$key]))
+        if($key != null)
         {
-            unset($_SESSION[$key]);
-            return true;
+            if(isset($_SESSION[$key]))
+            {
+                unset($_SESSION[$key]);
+                return true;
+            }
+            else
+            {
+                throw new \Exception("Unable to destroy session '$key': Session does not exist.");
+            }
         }
-        else
-        {
-            throw new \Exception("Unable to destroy session '$key': Session does not exist.");
-        }
+
+        session_unset();
     }
 
 

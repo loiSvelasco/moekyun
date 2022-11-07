@@ -17,8 +17,18 @@ class Dashboard extends \Core\Controller
 
     public function indexAction()
     {
+        $this->redirect('admin/users')
+             ->alert('warn', 'warn alert')
+             ->go();
+             
         View::render('Admin/dashboard', [
             
         ]);
+    }
+
+    public function clearAction()
+    {
+        session()->destroy();
+        $this->redirect('admin/')->go();
     }
 }
