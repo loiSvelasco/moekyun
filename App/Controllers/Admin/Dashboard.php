@@ -28,7 +28,7 @@ class Dashboard extends \Core\Controller
 
     public function clearAction()
     {
-        session()->destroy();
+        session()->destroy('invalidkey');
         $this->redirect('admin/')->go();
     }
 }

@@ -48,8 +48,15 @@ class Session
                 throw new \Exception("Unable to destroy session '$key': Session does not exist.");
             }
         }
+        else
+        {
+            session_unset();
+        }
+    }
 
-        session_unset();
+    public function has(string $key): bool
+    {
+        return isset($_SESSION[$key]);
     }
 
 
