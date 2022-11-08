@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="row">
-	<div class="col">
+	<div class="col d-flex justify-content-start">
 		<h1 class="h3 mb-3">Users</h1>
 	</div>
 	<div class="col d-flex justify-content-end">

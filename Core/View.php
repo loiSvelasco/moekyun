@@ -27,9 +27,8 @@ class View
         {
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
             $twig = new \Twig\Environment($loader);
-
-            $twig->addGlobal('session', $_SESSION);
-            
+            $twig->addGlobal('session', session());
+             
             $twig->addFunction(
                 new \Twig\TwigFunction('getenv', function ($key) {
                     return $_ENV[$key];
@@ -51,13 +50,13 @@ class View
                 })
             );
 
-            $twig->addFunction(
-                new \Twig\TwigFunction('flash', function ($key) {
-                    $flashMsg = session($key);
-                    session()->destroy($key);
-                    return $flashMsg;
-                })
-            );
+            // $twig->addFunction(
+                // new \Twig\TwigFunction('flash', function ($key) {
+                    // $flashMsg = session($key);
+                    // session()->destroy($key);
+                    // return $flashMsg;
+                // })
+            // );
         }
 
         $template .= ".php";

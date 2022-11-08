@@ -18,13 +18,16 @@ class Navigator
 
     public function alert(string $type, string $msg)
     {
-        session()->set($type, $msg);
+        $this->alertType = $type;
+        $this->alertMsg = $msg;
         return $this;
     }
 
     public function go()
     {
+        session()->set($this->alertType, $this->alertMsg);
         header($this->to, $this->response);
+        exit;
     }
 
 }

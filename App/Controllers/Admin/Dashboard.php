@@ -18,7 +18,7 @@ class Dashboard extends \Core\Controller
     public function indexAction()
     {
         $this->redirect('admin/users')
-             ->alert('warn', 'warn alert')
+             ->alert('success', 'success alert')
              ->go();
              
         View::render('Admin/dashboard', [

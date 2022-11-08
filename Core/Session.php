@@ -41,7 +41,6 @@ class Session
             if(isset($_SESSION[$key]))
             {
                 unset($_SESSION[$key]);
-                return true;
             }
             else
             {
@@ -59,5 +58,11 @@ class Session
         return isset($_SESSION[$key]);
     }
 
+    public function flash(string $key)
+    {
+        $flashMsg = $this->get($key);
+        $this->destroy($key);
+        return $flashMsg;
+    }
 
 }
