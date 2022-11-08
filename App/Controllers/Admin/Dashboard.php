@@ -26,9 +26,4 @@ class Dashboard extends \Core\Controller
         ]);
     }
 
-    public function clearAction()
-    {
-        session()->destroy();
-        // $this->redirect('admin/')->go();
-    }
 }
