@@ -2,7 +2,6 @@
 
 namespace Core;
 
-use Core\Session;
 
 abstract class Controller extends Navigator
 {

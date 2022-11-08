@@ -27,8 +27,8 @@ class View
         {
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
             $twig = new \Twig\Environment($loader);
-            
-            $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+            $twig->addGlobal('session', $_SESSION);
             
             $twig->addFunction(
                 new \Twig\TwigFunction('getenv', function ($key) {
@@ -48,6 +48,14 @@ class View
                 new \Twig\TwigFunction('url_for', function ($folderName, $fileName) {
                     $url = $_ENV['BASE_URL'];
                     return "$url/$folderName/$fileName";
+                })
+            );
+
+            $twig->addFunction(
+                new \Twig\TwigFunction('flash', function ($key) {
+                    $flashMsg = session($key);
+                    session()->destroy($key);
+                    return $flashMsg;
                 })
             );
         }

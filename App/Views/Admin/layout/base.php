@@ -309,13 +309,7 @@
 
 			<main class="content">
 				<div class="container-fluid p-0">
-					
-						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-							<strong>Holy guacamole!</strong> You should check in on some of those fields below.
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-
-						
+					{% include "Admin/layout/alerts.php" %}
 					{% block body %}
 					{% endblock %}
 				</div>
@@ -328,7 +322,7 @@
 							<p class="mb-0">
 								<a class="text-muted" href="https://adminkit.io/"
 									target="_blank"><strong>Made with ❤</strong></a> - <a class="text-muted"
-									href="https://adminkit.io/" target="_blank"><strong>Louis Velasco</strong></a> &copy;
+									href="https://loisvelasco.is-a.dev/" target="_blank"><strong>Louis Velasco</strong></a> &copy;
 							</p>
 						</div>
 						<div class="col-6 text-end">

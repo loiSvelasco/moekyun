@@ -32,7 +32,7 @@ $dotenv->load();
 
 /**
  * --------------------------
- * Class Autoloader
+ * Class Autoloader && start session
  * --------------------------
  */
 spl_autoload_register(function($class)
@@ -44,6 +44,8 @@ spl_autoload_register(function($class)
         require $root . '/' . str_replace('\\', '/', $class) . '.php';
     }
 });
+
+session();
 
 /**
  * --------------------------

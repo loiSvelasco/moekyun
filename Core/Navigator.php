@@ -2,8 +2,6 @@
 
 namespace Core;
 
-use Core\Session;
-
 class Navigator
 {
     private $to;
@@ -20,8 +18,6 @@ class Navigator
 
     public function alert(string $type, string $msg)
     {
-        // $session = new Session();
-        // $session->set($type, $msg);
         session()->set($type, $msg);
         return $this;
     }
