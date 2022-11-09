@@ -13,7 +13,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>Dashboard</title>
+	<title>{% block title %}{% endblock %}</title>
 
 	{% include "layout/styles.php" %}
 

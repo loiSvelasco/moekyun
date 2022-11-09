@@ -1,5 +1,5 @@
 {% extends "Admin/layout/base.php" %}
-
+{% block title %}Users{% endblock %}
 {% block body %}
 <div class="row">
 	<div class="col d-flex justify-content-start">

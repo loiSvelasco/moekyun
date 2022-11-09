@@ -1,5 +1,5 @@
 {% extends "Admin/layout/base.php" %}
-
+{% block title %}Dashboard{% endblock %}
 {% block body %}
 <div class="row">
 	<div class="col">
