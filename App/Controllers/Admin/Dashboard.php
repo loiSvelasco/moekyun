@@ -21,9 +21,7 @@ class Dashboard extends \Core\Controller
              ->alert('success', 'success alert')
              ->go();
              
-        View::render('Admin/dashboard', [
-            
-        ]);
+        View::render('Admin/dashboard', []);
     }
 
 }

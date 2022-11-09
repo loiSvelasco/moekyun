@@ -18,9 +18,7 @@ class Users extends \Core\Controller
 
     public function indexAction()
     {
-        View::render('Admin/users', [
-            
-        ]);
+        View::render('Admin/users', []);
     }
 
 }
